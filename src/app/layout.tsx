@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/provider/providers";
+import { cn } from "@/lib/utils";
 
 // Jetbrian Mono Font
 const jetbrainsMono = JetBrains_Mono({
@@ -20,9 +22,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={jetbrainsMono.variable}>
-      <body className={`antialiased`} cz-shortcut-listen="true">
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={cn(jetbrainsMono.variable, "antialiased")}
+        cz-shortcut-listen="true"
+      >
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
