@@ -17,6 +17,7 @@ export default function HomePage(): React.JSX.Element {
         <Craft />
         <Contact />
       </main>
+
       <Footer />
     </>
   );

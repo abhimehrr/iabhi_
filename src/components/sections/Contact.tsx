@@ -38,7 +38,7 @@ export function Contact(_props: ContactProps): React.JSX.Element {
                 <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[22px] font-normal leading-snug md:text-[28px]">
                   <span className="text-muted">{item.label}</span>
                   <ArrowRight
-                    className="h-5 w-5 text-accent-orange"
+                    className="size-5 text-accent-orange"
                     aria-hidden
                   />
                   <span className="text-primary">{item.display}</span>

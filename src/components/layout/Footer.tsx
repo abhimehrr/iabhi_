@@ -1,11 +1,18 @@
+import { DotIcon } from "lucide-react";
+
 export interface FooterProps {}
 
 export function Footer(_props: FooterProps): React.JSX.Element {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="page-shell pb-10 pt-8 text-center">
-      <p className="text-[13px] text-muted">Abhishek · {year} · Built with Next.js</p>
+    <footer className="py-10 text-center border-t border-border">
+      <p className="text-sm text-muted flex items-center justify-center gap-2">
+        <span>© {year}</span>
+        <span className="font-medium text-accent-orange">Abhishek</span>
+        <DotIcon className="size-4" />
+        <span>Shipping systems, not just code</span>
+      </p>
     </footer>
   );
 }
