@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --app-bg: #fafaf9;
+  --surface: #ffffff;
+  --border: #e7e5e4;
+  --text-primary: #1c1917;
+  --text-secondary: #78716c;
+  --text-muted: #a8a29e;
+  --accent-dark: #0f172a;
+  --accent-orange: #f97316;
+}
+
+.dark {
+  --app-bg: #0a0a0a;
+  --surface: #141414;
+  --border: #262626;
+  --text-primary: #fafaf9;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --accent-dark: #e2e8f0;
+  --accent-orange: #fb923c;
+}
+
+@theme inline {
+  --color-app: var(--app-bg);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-accent-dark: var(--accent-dark);
+  --color-accent-orange: var(--accent-orange);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-instrument-serif);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--app-bg);
+  color: var(--text-primary);
+}
+
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: ease;
+  transition-duration: 150ms;
+}
+
+*::selection {
+  background: rgb(249 115 22 / 0.18);
+  color: var(--text-primary);
+}
+
+:focus-visible {
+  outline: 2px solid rgb(249 115 22 / 0.8);
+  outline-offset: 2px;
+}
+
+.page-shell {
+  margin-inline: auto;
+  width: min(1200px, calc(100% - 2.5rem));
+}
+
+.section-space {
+  padding-block: 7.5rem;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.section-heading {
+  margin-top: 0.9rem;
+  font-size: clamp(2.2rem, 3.3vw, 42px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+.body-copy {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+.caption-copy {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 767px) {
+  .page-shell {
+    width: min(1200px, calc(100% - 1.5rem));
+  }
+
+  .section-space {
+    padding-block: 3.75rem;
+  }
+}
