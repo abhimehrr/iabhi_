@@ -1,6 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import { AnimateIn } from "@/components/ui/AnimateIn";
 import type { ProjectItem } from "@/lib/projects";
+import Link from "next/link";
 
 export interface ProjectRowProps {
   project: ProjectItem;
@@ -26,15 +27,15 @@ export function ProjectRow({
               {project.category}
             </span>
             {project.url && (
-              <a
+              <Link
                 href={project.url}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-5 inline-flex items-center gap-1.5 text-[13px] text-muted transition hover:text-primary"
+                className="mt-3 ml-2 inline-flex items-center gap-1.5 rounded-full bg-surface border border-border px-3 py-1 text-[13px] font-medium text-secondary hover:text-primary"
               >
                 {project.url.replace("https://", "")}
                 <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-              </a>
+              </Link>
             )}
           </div>
         </div>
