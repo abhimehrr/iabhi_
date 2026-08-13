@@ -12,6 +12,13 @@ const BACKEND_STACK = [
   "Redis",
   "BullMQ",
 ] as const;
+const DEVOPS_STACK = [
+  "Docker",
+  "Jenkins",
+  "AWS",
+  "CI/CD",
+  "Linux",
+] as const;
 const FRONTEND_STACK = [
   "Next.js",
   "React",
@@ -72,6 +79,13 @@ export function Experience(_props: ExperienceProps): React.JSX.Element {
                       processing, and integrating AI services into practical
                       workflows.
                     </p>
+                    <p>
+                      Handle deployment and infrastructure using Docker and
+                      Jenkins CI/CD pipelines on AWS. Work with HIPAA-compliant
+                      infrastructure for healthcare applications, managing
+                      sensitive PHI data with proper security controls and
+                      isolated services.
+                    </p>
                   </div>
 
                   <div className="mt-8 space-y-5">
@@ -81,6 +95,22 @@ export function Experience(_props: ExperienceProps): React.JSX.Element {
                       </p>
                       <div className="mt-3 flex flex-wrap gap-2">
                         {BACKEND_STACK.map((tech) => (
+                          <span
+                            key={tech}
+                            className="rounded-full border border-border bg-surface px-3 py-1.5 text-[13px] text-secondary"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="text-[13px] font-medium uppercase tracking-wider text-muted">
+                        DevOps & Cloud
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {DEVOPS_STACK.map((tech) => (
                           <span
                             key={tech}
                             className="rounded-full border border-border bg-surface px-3 py-1.5 text-[13px] text-secondary"
