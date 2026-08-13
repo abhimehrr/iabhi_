@@ -1,5 +1,5 @@
 export interface ProjectItem {
-  id: "01" | "02" | "03" | "04";
+  id: "01" | "02" | "03" | "04" | "05";
   name: string;
   category: "EdTech" | "Healthcare" | "FoodTech" | "Hiring-Tech";
   url: string;
@@ -22,13 +22,36 @@ export const PROJECTS: readonly ProjectItem[] = [
   },
   {
     id: "02",
+    name: "AI Clinic",
+    category: "Healthcare",
+    url: "https://ai-clinic.tech",
+    summary:
+      "India's default medication adherence platform with 5 AI agents working 24/7. Built multiple real-time conversational agents on LiveKit that connect hospitals with patients after surgery or discharge - monitoring recovery, delivering care instructions, and managing medication schedules. Integrated with MARS system to support hospital internal operations.",
+    challenge:
+      "Architected a multi-agent system on LiveKit for real-time patient engagement across multiple hospitals. Each agent handles specific care moments: pre-surgery prep, medication adherence, post-surgery monitoring, prescription fulfillment, and appointment management. Hospitals can choose from multiple intervention agents based on patient needs. Integrated WhatsApp API to deliver AI doctor avatar videos for medication reminders. Built event-driven workflows with Python and Node.js for intelligent nudges. Seamlessly integrated with MARS (hospital management system) to unify patient engagement with internal workflows. Deployed with Docker and Jenkins CI/CD pipeline on AWS, handling sensitive PHI data with HIPAA-compliant infrastructure.",
+    tech: [
+      "Node.js",
+      "Python",
+      "LiveKit",
+      "MongoDB",
+      "Azure AI",
+      "D-ID",
+      "WhatsApp API",
+      "Docker",
+      "Jenkins",
+      "AWS",
+      "BullMQ",
+    ],
+  },
+  {
+    id: "03",
     name: "MARS",
     category: "Healthcare",
     url: "https://mars.ai-clinic.tech",
     summary:
-      "A medication adherence platform that automates patient reminders with AI-generated video calls. A custom doctor avatar delivers medication reminders, states precautions, and handles follow-ups - fully automated end to end.",
+      "Medication Adherence & Reminder System - A comprehensive hospital management platform with AI-powered patient engagement. Handles OPD operations, daily appointments, prescription management, and automated patient reminders through customizable AI agents.",
     challenge:
-      "Built background processing for time-based, retry-safe task execution at scale. The AI agent system generates personalized video calls using D-ID and Azure AI. Deployed with isolated services, role-based access control, and secure handling of sensitive healthcare data.",
+      "Built a complete hospital management system with OPD module supporting daily appointment scheduling, prescription creation and management, and patient records. Implemented background processing for time-based, retry-safe task execution at scale. Developed an AI agent system where hospitals can select from multiple intervention agents for post-discharge patient follow-up, medication awareness, and care instruction delivery. The customized doctor avatar calls patients, delivers medication reminders with precautions, and handles follow-ups - fully automated end to end. Enforced role-based access control and secure handling of sensitive healthcare data with isolated services and scalable storage.",
     tech: [
       "Node.js",
       "MongoDB",
@@ -37,10 +60,11 @@ export const PROJECTS: readonly ProjectItem[] = [
       "FFmpeg",
       "Docker",
       "BullMQ",
+      "Redis",
     ],
   },
   {
-    id: "03",
+    id: "04",
     name: "iPariksha",
     category: "EdTech",
     url: "https://ipariksha.com",
@@ -51,7 +75,7 @@ export const PROJECTS: readonly ProjectItem[] = [
     tech: ["NestJS", "PostgreSQL", "Redis", "BullMQ", "Razorpay"],
   },
   {
-    id: "04",
+    id: "05",
     name: "TiffinDost",
     category: "FoodTech",
     url: "",

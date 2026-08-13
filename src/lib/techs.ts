@@ -6,7 +6,7 @@ export interface TechLayer {
 export const TECH_LAYERS: readonly TechLayer[] = [
   {
     layer: "Languages",
-    items: ["TypeScript", "JavaScript"],
+    items: ["TypeScript", "JavaScript", "Python"],
   },
   {
     layer: "Backend",
@@ -21,19 +21,33 @@ export const TECH_LAYERS: readonly TechLayer[] = [
     items: ["Next.js"],
   },
   {
+    layer: "DevOps & Cloud",
+    items: [
+      "Docker",
+      "Jenkins",
+      "AWS EC2",
+      "AWS S3",
+      "CI/CD",
+      "Linux",
+    ],
+  },
+  {
     layer: "Systems",
     items: [
       "Redis",
       "BullMQ",
       "WebSockets",
       "WebRTC",
-      "Docker",
-      "AWS",
+      "LiveKit",
       "Media Processing",
     ],
   },
   {
+    layer: "AI & ML",
+    items: ["Gemini AI", "Azure AI", "D-ID", "OpenAI", "Machine Learning"],
+  },
+  {
     layer: "Integrations",
-    items: ["Gemini AI", "Azure AI", "D-ID", "Razorpay"],
+    items: ["WhatsApp API", "Razorpay", "FFmpeg"],
   },
 ] as const;

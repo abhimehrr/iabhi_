@@ -24,7 +24,7 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: "Backend",
     icon: ServerCog,
-    items: ["NestJS", "Node.js", "Fastify", "Express"]
+    items: ["NestJS", "Node.js", "Fastify", "Express", "Python"]
   },
   {
     title: "Databases",
@@ -32,9 +32,9 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     items: ["PostgreSQL", "MongoDB", "MySQL", "Redis"]
   },
   {
-    title: "Infrastructure",
+    title: "DevOps & Cloud",
     icon: CloudCog,
-    items: ["Docker", "AWS", "BullMQ", "Redis"]
+    items: ["Docker", "Jenkins", "AWS", "CI/CD", "Linux"]
   },
   {
     title: "Frontend",
@@ -42,9 +42,9 @@ const SKILL_CATEGORIES: SkillCategory[] = [
     items: ["Next.js", "React", "TypeScript"]
   },
   {
-    title: "AI / Integrations",
+    title: "AI / ML",
     icon: BrainCircuit,
-    items: ["Gemini", "Azure AI", "D-ID", "WebRTC", "Socket.IO"]
+    items: ["Gemini", "Azure AI", "OpenAI", "Machine Learning", "D-ID"]
   }
 ];
 
