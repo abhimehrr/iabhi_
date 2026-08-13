@@ -26,7 +26,7 @@ export const PROJECTS: readonly ProjectItem[] = [
     category: "Healthcare",
     url: "https://ai-clinic.tech",
     summary:
-      "India's default medication adherence platform with 5 AI agents working 24/7. Built multiple real-time conversational agents on LiveKit that connect hospitals with patients after surgery or discharge - monitoring recovery, delivering care instructions, and managing medication schedules. Integrated with MARS system to support hospital internal operations.",
+      "India's default medication adherence platform with multiple AI agents working 24/7. Built multiple real-time conversational agents on LiveKit that connect hospitals with patients after surgery or discharge - monitoring recovery, delivering care instructions, and managing medication schedules. Integrated with MARS system to support hospital internal operations.",
     challenge:
       "Architected a multi-agent system on LiveKit for real-time patient engagement across multiple hospitals. Each agent handles specific care moments: pre-surgery prep, medication adherence, post-surgery monitoring, prescription fulfillment, and appointment management. Hospitals can choose from multiple intervention agents based on patient needs. Integrated WhatsApp API to deliver AI doctor avatar videos for medication reminders. Built event-driven workflows with Python and Node.js for intelligent nudges. Seamlessly integrated with MARS (hospital management system) to unify patient engagement with internal workflows.",
     tech: [
