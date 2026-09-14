@@ -19,29 +19,23 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://abhi.shre.in"),
-  title: "Abhishek | Backend Engineer",
-  description:
-    "Backend engineer at Mithila Stack shipping production platforms across EdTech, Healthcare, and Food delivery.",
+  metadataBase: new URL("https://iabhi.live"),
+  title: "Senior AI Software Engineer & Backend Expert | Abhishek",
+  description: "Expert AI Software Engineer and Backend Developer specializing in scalable AI systems, ML pipelines, and full-stack architecture. Build your future with me.",
+  alternates: { canonical: "https://iabhi.live" },
   openGraph: {
-    title: "Abhishek | Backend Engineer",
-    description:
-      "Three production platforms built and shipped: iPariksha, MARS, and TiffinDost.",
-    url: "https://abhi.shre.in",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Abhishek backend engineer portfolio",
-      },
-    ],
-    siteName: "Abhishek Portfolio",
+    title: "Senior AI Software Engineer & Backend Expert | Abhishek",
+    description: "Expert AI Software Engineer and Backend Developer specializing in scalable AI systems, ML pipelines, and full-stack architecture. Build your future with me.",
+    url: "https://iabhi.live",
+    siteName: "abhishek portfolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
+    title: "Senior AI Software Engineer & Backend Expert | Abhishek",
+    description: "Expert AI Software Engineer and Backend Developer specializing in scalable AI systems, ML pipelines, and full-stack architecture.",
   },
+  robots: { index: true, follow: true },
 };
 
 const themeScript = `
@@ -54,6 +48,18 @@ const themeScript = `
     } catch (e) {}
   })();
 `;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Abhishek Portfolio",
+  "url": "https://iabhi.live",
+  "author": {
+    "@type": "Person",
+    "name": "Abhishek",
+    "jobTitle": "Senior AI Software Engineer"
+  }
+};
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -70,9 +76,12 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script 
+          type="application/ld+json" 
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} 
+        />
       </head>
       <body
-        cz-shortcut-listen="true"
         className="bg-app font-sans antialiased"
       >
         <ThemeProvider>{children}</ThemeProvider>

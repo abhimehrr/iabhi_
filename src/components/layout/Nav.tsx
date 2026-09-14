@@ -56,9 +56,9 @@ export function Nav(_props: NavProps): React.JSX.Element {
       >
         <div className="page-shell flex h-16 items-center justify-between">
           <Link
-            href="#top"
+            href="/"
             className="text-[18px] font-bold text-primary"
-            aria-label="Go to top"
+            aria-label="Abhishek Portfolio Home"
           >
             Abhi.
           </Link>
@@ -67,6 +67,7 @@ export function Nav(_props: NavProps): React.JSX.Element {
             className="hidden items-center gap-7 md:flex"
             aria-label="Primary navigation"
           >
+  <Link href="/faq">FAQ</Link>
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
