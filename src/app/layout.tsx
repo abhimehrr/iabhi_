@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { SITE_URL } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -17,8 +18,6 @@ const instrumentSerif = Instrument_Serif({
   preload: true,
   weight: "400",
 });
-
-export const SITE_URL = "https://iabhi.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

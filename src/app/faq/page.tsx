@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
 import { Footer } from "@/components/layout/Footer";
 import { Nav } from "@/components/layout/Nav";
 import { AnimateIn } from "@/components/ui/AnimateIn";
-import { SITE_URL } from "../layout";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | abhishek portfolio",
