@@ -47,11 +47,14 @@ export function Experience(_props: ExperienceProps): React.JSX.Element {
                 </p>
 
                 <div className="mt-6 space-y-4 text-[15px] leading-7 text-secondary">
+                  <div className="absolute -left-6 top-1.5 hidden h-3 w-3 rounded-full border-2 border-accent-orange bg-surface md:block" />
+                  <div className="absolute -left-4.5 top-5 hidden h-full w-px bg-border md:block" />
+
                   <p>
                     In July 2026 I was promoted to Project Manager for the
                     company, and I took it on alongside my engineering work, not
                     instead of it. I now look after several projects at the same
-                    time and a team of 15–20 people across them.
+                    time and a team of 15-20 people across them.
                   </p>
                   <p>
                     A normal week is mostly planning what each team works on
@@ -80,8 +83,7 @@ export function Experience(_props: ExperienceProps): React.JSX.Element {
               </div>
 
               <div className="relative pb-12 md:pb-16">
-                {/* <div className="absolute -left-6 top-1.5 hidden h-3 w-3 rounded-full border-2 border-accent-orange bg-surface md:block" />
-                <div className="absolute -left-[17px] top-5 hidden h-full w-px bg-border md:block" /> */}
+                <div className="absolute -left-6 top-1.5 hidden h-3 w-3 rounded-full border-2 border-accent-orange bg-surface md:block" />
 
                 <div>
                   <h3 className="text-[22px] font-medium tracking-[-0.02em] text-primary md:text-[24px]">
