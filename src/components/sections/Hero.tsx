@@ -25,7 +25,7 @@ export function Hero(_props: HeroProps): React.JSX.Element {
       id="top"
       className="page-shell grid min-h-screen items-center gap-12 pt-20 lg:grid-cols-[minmax(0,1fr)_340px] xl:grid-cols-[minmax(0,1fr)_380px]"
     >
-      <div className="max-w-225">
+      <div className="hero-glow max-w-225">
         <motion.p
           key={`hero-name-${animationKey}`}
           initial={shouldAnimate ? { opacity: 0, y: 20 } : false}

@@ -65,12 +65,60 @@ body {
   transform: translateX(-50%);
   z-index: -1;
   pointer-events: none;
-  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 18%,
+    #000 82%,
+    transparent
+  );
+}
+
+.hero-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Gradients reach transparent well inside the layer, so the glow never touches the hero's right column. */
+.hero-glow::before {
+  content: "";
+  position: absolute;
+  inset-block: -160px;
+  left: -240px;
+  right: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(
+      ellipse 50% 45% at 42% 45%,
+      var(--glow),
+      transparent 70%
+    ),
+    radial-gradient(ellipse 30% 30% at 45% 42%, var(--glow), transparent 70%),
+    radial-gradient(ellipse 30% 30% at 18% 78%, var(--glow), transparent 70%);
+  animation: hero-glow-breathe 9s ease-in-out infinite alternate;
+}
+
+@keyframes hero-glow-breathe {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-glow::before {
+    animation: none;
+  }
 }
 
 .texture-rings::before {
-  background-image:
-    radial-gradient(ellipse 55% 90% at 50% 100%, var(--glow), transparent 70%),
+  background-image: radial-gradient(
+      ellipse 55% 90% at 50% 100%,
+      var(--glow),
+      transparent 70%
+    ),
     repeating-radial-gradient(
       circle at 50% 100%,
       var(--pattern-line) 0 1px,
