@@ -1,104 +1,136 @@
-import React from 'react';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
+import { Footer } from "@/components/layout/Footer";
+import { Nav } from "@/components/layout/Nav";
+import { AnimateIn } from "@/components/ui/AnimateIn";
+import { SITE_URL } from "../layout";
 
-export const metadata = {
-  title: 'Frequently Asked Questions | abhishek portfolio',
-  description: 'Find answers to common questions about abhishek portfolio, features, security, and services on iabhi.live.',
-  alternates: { canonical: 'https://iabhi.live/faq' },
+export const metadata: Metadata = {
+  title: "Frequently Asked Questions | abhishek portfolio",
+  description:
+    "Find answers to common questions about abhishek portfolio, features, security, and services on iabhi.live.",
+  alternates: { canonical: `${SITE_URL}/faq` },
   openGraph: {
-    title: 'Frequently Asked Questions | abhishek portfolio',
-    description: 'Find answers to common questions about abhishek portfolio.',
-    url: 'https://iabhi.live/faq',
-    siteName: 'abhishek portfolio',
-    type: 'website',
+    title: "Frequently Asked Questions | abhishek portfolio",
+    description: "Find answers to common questions about abhishek portfolio.",
+    url: `${SITE_URL}/faq`,
+    siteName: "abhishek portfolio",
+    type: "website",
   },
 };
 
-export default function FAQPage() {
-  const schemaData = {
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+const FAQ_ITEMS: readonly FaqItem[] = [
+  {
+    question:
+      "What kind of software engineering services do you specialize in?",
+    answer:
+      "I specialize in building scalable, intelligent applications as an AI full stack developer. My expertise spans the entire development lifecycle, from architecting robust backends and intuitive frontends to integrating advanced machine learning models and optimizing DevOps pipelines.",
+  },
+  {
+    question: "How can an AI software engineer help my business grow?",
+    answer:
+      "As an AI software engineer, I bridge the gap between traditional software development and artificial intelligence. I help businesses automate complex workflows, implement predictive analytics, and build AI-driven features that enhance user experience and provide a competitive edge in the market.",
+  },
+  {
+    question:
+      "Do you have experience with end-to-end ML engineering and deployment?",
+    answer:
+      "Yes, I am an experienced ML engineer with a strong focus on production-grade deployments. I don't just build models; I ensure they are scalable, maintainable, and seamlessly integrated into your existing infrastructure using modern DevOps practices.",
+  },
+  {
+    question: "What is your approach to DevOps and infrastructure management?",
+    answer:
+      "As a DevOps engineer, I prioritize automation, CI/CD efficiency, and cloud-native architecture. My goal is to ensure your software is reliable, secure, and capable of handling high traffic loads with minimal downtime, allowing your team to focus on feature development.",
+  },
+  {
+    question:
+      "Why should I hire you as a senior software engineer for my project?",
+    answer:
+      "With a deep background as a senior software engineer, I bring technical leadership, architectural foresight, and a problem-solving mindset to every project. Whether you need a complex AI system or a high-performance web application, I deliver clean, efficient, and future-proof code that aligns with your business objectives.",
+  },
+];
+
+const schemaData = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What kind of software engineering services do you specialize in?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "I specialize in building scalable, intelligent applications as an AI full stack developer. My expertise spans the entire development lifecycle, from architecting robust backends and intuitive frontends to integrating advanced machine learning models and optimizing DevOps pipelines."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How can an AI software engineer help my business grow?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "As an AI software engineer, I bridge the gap between traditional software development and artificial intelligence. I help businesses automate complex workflows, implement predictive analytics, and build AI-driven features that enhance user experience and provide a competitive edge in the market."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you have experience with end-to-end ML engineering and deployment?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, I am an experienced ML engineer with a strong focus on production-grade deployments. I don't just build models; I ensure they are scalable, maintainable, and seamlessly integrated into your existing infrastructure using modern DevOps practices."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is your approach to DevOps and infrastructure management?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "As a DevOps engineer, I prioritize automation, CI/CD efficiency, and cloud-native architecture. My goal is to ensure your software is reliable, secure, and capable of handling high traffic loads with minimal downtime, allowing your team to focus on feature development."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why should I hire you as a senior software engineer for my project?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "With a deep background as a senior software engineer, I bring technical leadership, architectural foresight, and a problem-solving mindset to every project. Whether you need a complex AI system or a high-performance web application, I deliver clean, efficient, and future-proof code that aligns with your business objectives."
-      }
-    }
-  ]
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
 };
 
+export default function FAQPage(): React.JSX.Element {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-12">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
-      <div className="mb-6">
-        <a
-          href="/"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors border border-gray-300"
-        >
-          ← Back to Home
-        </a>
-      </div>
-      <h1 className="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h1>
-      <p className="text-gray-600 mb-8">Everything you need to know about abhishek portfolio.</p>
-      <div className="faq-list">
-          <div key={0} className="mb-6 border-b border-gray-200 pb-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">What kind of software engineering services do you specialize in?</h3>
-            <p className="text-gray-600">I specialize in building scalable, intelligent applications as an AI full stack developer. My expertise spans the entire development lifecycle, from architecting robust backends and intuitive frontends to integrating advanced machine learning models and optimizing DevOps pipelines.</p>
+      <Nav />
+      <main>
+        <section className="section-space">
+          <div className="page-shell">
+            <div className="grid gap-10 md:grid-cols-[280px_1fr] md:gap-16">
+              <div>
+                <div className="md:sticky md:top-24">
+                  <p className="section-label">FAQ</p>
+                  <h1 className="section-heading">Questions, answered.</h1>
+                  <p className="body-copy mt-5">
+                    Everything you need to know about how I work and what I
+                    build.
+                  </p>
+                </div>
+              </div>
+
+              <div className="border-t border-border">
+                {FAQ_ITEMS.map((item, index) => (
+                  <AnimateIn key={item.question} delay={index * 0.06}>
+                    <details
+                      className="group border-b border-border py-6"
+                      open={index === 0}
+                    >
+                      <summary className="flex cursor-pointer list-none items-start justify-between gap-6 [&::-webkit-details-marker]:hidden">
+                        <h2 className="text-[18px] font-medium leading-snug tracking-[-0.01em] text-primary transition group-hover:text-accent-orange md:text-[20px]">
+                          {item.question}
+                        </h2>
+                        <Plus
+                          className="mt-1 size-5 shrink-0 text-accent-orange transition-transform duration-200 group-open:rotate-45"
+                          aria-hidden
+                        />
+                      </summary>
+                      <p className="mt-4 max-w-2xl text-[15px] leading-7 text-secondary">
+                        {item.answer}
+                      </p>
+                    </details>
+                  </AnimateIn>
+                ))}
+
+                <AnimateIn delay={FAQ_ITEMS.length * 0.06}>
+                  <a
+                    href="mailto:abhias.dev@gmail.com"
+                    className="group mt-10 inline-flex flex-wrap items-center gap-x-3 gap-y-1 text-[18px] transition-transform duration-200 hover:translate-x-1 md:text-[22px]"
+                  >
+                    <span className="text-muted">Still have a question?</span>
+                    <ArrowRight
+                      className="size-5 text-accent-orange"
+                      aria-hidden
+                    />
+                    <span className="text-primary">abhias.dev@gmail.com</span>
+                  </a>
+                </AnimateIn>
+              </div>
+            </div>
           </div>
-          <div key={1} className="mb-6 border-b border-gray-200 pb-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">How can an AI software engineer help my business grow?</h3>
-            <p className="text-gray-600">As an AI software engineer, I bridge the gap between traditional software development and artificial intelligence. I help businesses automate complex workflows, implement predictive analytics, and build AI-driven features that enhance user experience and provide a competitive edge in the market.</p>
-          </div>
-          <div key={2} className="mb-6 border-b border-gray-200 pb-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Do you have experience with end-to-end ML engineering and deployment?</h3>
-            <p className="text-gray-600">Yes, I am an experienced ML engineer with a strong focus on production-grade deployments. I don't just build models; I ensure they are scalable, maintainable, and seamlessly integrated into your existing infrastructure using modern DevOps practices.</p>
-          </div>
-          <div key={3} className="mb-6 border-b border-gray-200 pb-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">What is your approach to DevOps and infrastructure management?</h3>
-            <p className="text-gray-600">As a DevOps engineer, I prioritize automation, CI/CD efficiency, and cloud-native architecture. My goal is to ensure your software is reliable, secure, and capable of handling high traffic loads with minimal downtime, allowing your team to focus on feature development.</p>
-          </div>
-          <div key={4} className="mb-6 border-b border-gray-200 pb-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Why should I hire you as a senior software engineer for my project?</h3>
-            <p className="text-gray-600">With a deep background as a senior software engineer, I bring technical leadership, architectural foresight, and a problem-solving mindset to every project. Whether you need a complex AI system or a high-performance web application, I deliver clean, efficient, and future-proof code that aligns with your business objectives.</p>
-          </div>
-      </div>
-    </main>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }

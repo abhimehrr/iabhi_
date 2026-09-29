@@ -8,10 +8,10 @@ import Link from "next/link";
 export interface NavProps {}
 
 const NAV_LINKS = [
-  { href: "#experience", label: "Experience" },
-  { href: "#work", label: "Work" },
-  { href: "#craft", label: "Craft" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#work", label: "Work" },
+  { href: "/#craft", label: "Craft" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
 export function Nav(_props: NavProps): React.JSX.Element {
