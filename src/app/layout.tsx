@@ -1,7 +1,7 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,22 +18,27 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
 });
 
+const SITE_URL = "https://iabhi.vercel.app";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://iabhi.live"),
+  metadataBase: new URL(SITE_URL),
   title: "Senior AI Software Engineer & Backend Expert | Abhishek",
-  description: "Expert AI Software Engineer and Backend Developer specializing in scalable AI systems, ML pipelines, and full-stack architecture. Build your future with me.",
-  alternates: { canonical: "https://iabhi.live" },
+  description:
+    "Expert AI Software Engineer and Backend Developer specializing in scalable AI systems, ML pipelines, and full-stack architecture. Build your future with me.",
+  alternates: { canonical: SITE_URL },
   openGraph: {
     title: "Senior AI Software Engineer & Backend Expert | Abhishek",
-    description: "Expert AI Software Engineer and Backend Developer specializing in scalable AI systems, ML pipelines, and full-stack architecture. Build your future with me.",
-    url: "https://iabhi.live",
+    description:
+      "Expert AI Software Engineer and Backend Developer specializing in scalable AI systems, ML pipelines, and full-stack architecture. Build your future with me.",
+    url: SITE_URL,
     siteName: "abhishek portfolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Senior AI Software Engineer & Backend Expert | Abhishek",
-    description: "Expert AI Software Engineer and Backend Developer specializing in scalable AI systems, ML pipelines, and full-stack architecture.",
+    description:
+      "Expert AI Software Engineer and Backend Developer specializing in scalable AI systems, ML pipelines, and full-stack architecture.",
   },
   robots: { index: true, follow: true },
 };
@@ -52,13 +57,13 @@ const themeScript = `
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Abhishek Portfolio",
-  "url": "https://iabhi.live",
-  "author": {
+  name: "Abhishek Portfolio",
+  url: SITE_URL,
+  author: {
     "@type": "Person",
-    "name": "Abhishek",
-    "jobTitle": "Senior AI Software Engineer"
-  }
+    name: "Abhishek",
+    jobTitle: "Senior AI Software Engineer",
+  },
 };
 
 interface RootLayoutProps {
@@ -76,14 +81,12 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <script 
-          type="application/ld+json" 
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} 
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className="bg-app font-sans antialiased"
-      >
+      <body className="bg-app font-sans antialiased" cz-shortcut-listen="true">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

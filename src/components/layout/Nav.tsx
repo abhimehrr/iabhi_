@@ -67,7 +67,6 @@ export function Nav(_props: NavProps): React.JSX.Element {
             className="hidden items-center gap-7 md:flex"
             aria-label="Primary navigation"
           >
-  <Link href="/faq">FAQ</Link>
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
