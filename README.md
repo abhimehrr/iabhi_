@@ -1,10 +1,10 @@
 # Abhishek — Portfolio
 
-Personal portfolio website showcasing my work as a Backend Engineer.
+Personal portfolio website showcasing my work as a Full Stack Engineer.
 
 ## About Me
 
-I'm Abhishek, a backend engineer with 2+ years of experience building production systems. Currently working at Mithila Stack where I've built and shipped products across hiring-tech, healthtech, edtech, and food-tech domains.
+I'm Abhishek, a full stack engineer working professionally since March 2024, building production systems. Currently working at Mithila Stack where I've built and shipped products across hiring-tech, healthtech, edtech, and food-tech domains.
 
 I own the backend end to end — API design, database architecture, async workflows, third-party integrations, and deployment. Most of what I build goes into production and stays there.
 

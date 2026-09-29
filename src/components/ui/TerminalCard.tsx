@@ -8,14 +8,16 @@ export interface TerminalCardProps {
 
 const TERMINAL_LINES: string[] = [
   "> whoami",
-  "Abhishek - Backend Engineer",
+  "Abhishek - Full Stack Engineer",
   "> skills --top",
   "NestJS, Node.js, PostgreSQL, Redis, Docker",
   "> status",
-  "Open to interesting problems"
+  "Open to interesting problems",
 ];
 
-export function TerminalCard({ className }: TerminalCardProps): React.JSX.Element {
+export function TerminalCard({
+  className,
+}: TerminalCardProps): React.JSX.Element {
   const fullText = useMemo(() => TERMINAL_LINES.join("\n"), []);
   const [typedText, setTypedText] = useState<string>("");
 
@@ -36,7 +38,9 @@ export function TerminalCard({ className }: TerminalCardProps): React.JSX.Elemen
 
   return (
     <div
-      className={`glass-panel edge-glow relative overflow-hidden rounded-2xl p-5 ${className ?? ""}`}
+      className={`glass-panel edge-glow relative overflow-hidden rounded-2xl p-5 ${
+        className ?? ""
+      }`}
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(99,102,241,0.18),transparent_30%)]" />
       <div className="mb-4 flex items-center gap-2">
@@ -44,7 +48,7 @@ export function TerminalCard({ className }: TerminalCardProps): React.JSX.Elemen
         <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#27c93f]" />
       </div>
-      <pre className="relative min-h-[170px] whitespace-pre-wrap font-mono text-sm leading-7 text-[#22c55e]">
+      <pre className="relative min-h-42.5 whitespace-pre-wrap font-mono text-sm leading-7 text-[#22c55e]">
         {typedText}
         <span className="animate-pulse">|</span>
       </pre>

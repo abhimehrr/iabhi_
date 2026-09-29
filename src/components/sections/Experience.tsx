@@ -53,7 +53,7 @@ export function Experience(_props: ExperienceProps): React.JSX.Element {
                     Mithila Stack
                   </h3>
                   <p className="mt-1 text-[15px] font-medium text-accent-orange">
-                    Backend Engineer
+                    Full Stack Engineer
                   </p>
 
                   <div className="mt-6 space-y-4 text-[15px] leading-7 text-secondary">

@@ -3,10 +3,18 @@
 import { motion } from "framer-motion";
 import { useShouldAnimate } from "@/components/ui/AnimateIn";
 import { SystemFlow } from "@/components/ui/SystemFlow";
+import { getYearsOfExperience } from "@/lib/experience";
 
 export interface HeroProps {}
 
-const SKILLS = ["NestJS", "Next.js", "PostgreSQL", "MongoDB", "Redis", "Queues"] as const;
+const SKILLS = [
+  "NestJS",
+  "Next.js",
+  "PostgreSQL",
+  "MongoDB",
+  "Redis",
+  "Queues",
+] as const;
 
 export function Hero(_props: HeroProps): React.JSX.Element {
   const shouldAnimate = useShouldAnimate();
@@ -17,13 +25,15 @@ export function Hero(_props: HeroProps): React.JSX.Element {
       id="top"
       className="page-shell grid min-h-screen items-center gap-12 pt-20 lg:grid-cols-[minmax(0,1fr)_340px] xl:grid-cols-[minmax(0,1fr)_380px]"
     >
-      <div className="max-w-[900px]">
+      <div className="max-w-225">
         <motion.p
           key={`hero-name-${animationKey}`}
           initial={shouldAnimate ? { opacity: 0, y: 20 } : false}
           animate={shouldAnimate ? { opacity: 1, y: 0 } : undefined}
           transition={
-            shouldAnimate ? { duration: 0.45, ease: "easeOut", delay: 0 } : undefined
+            shouldAnimate
+              ? { duration: 0.45, ease: "easeOut", delay: 0 }
+              : undefined
           }
           className="text-[15px] font-medium tracking-wide text-secondary"
         >
@@ -35,11 +45,13 @@ export function Hero(_props: HeroProps): React.JSX.Element {
           initial={shouldAnimate ? { opacity: 0, y: 20 } : false}
           animate={shouldAnimate ? { opacity: 1, y: 0 } : undefined}
           transition={
-            shouldAnimate ? { duration: 0.45, ease: "easeOut", delay: 0.08 } : undefined
+            shouldAnimate
+              ? { duration: 0.45, ease: "easeOut", delay: 0.08 }
+              : undefined
           }
           className="mt-2 text-[44px] leading-[1.02] font-bold tracking-[-0.04em] text-primary md:text-[72px]"
         >
-          Backend{" "}
+          Full Stack{" "}
           <span className="relative inline-block font-serif text-accent-dark">
             Engineer
             <svg
@@ -59,7 +71,9 @@ export function Hero(_props: HeroProps): React.JSX.Element {
                     : { pathLength: 1, opacity: 1 }
                 }
                 animate={
-                  shouldAnimate ? { pathLength: 1, opacity: 1 } : { pathLength: 1 }
+                  shouldAnimate
+                    ? { pathLength: 1, opacity: 1 }
+                    : { pathLength: 1 }
                 }
                 transition={
                   shouldAnimate
@@ -76,7 +90,9 @@ export function Hero(_props: HeroProps): React.JSX.Element {
           initial={shouldAnimate ? { opacity: 0, y: 20 } : false}
           animate={shouldAnimate ? { opacity: 1, y: 0 } : undefined}
           transition={
-            shouldAnimate ? { duration: 0.45, ease: "easeOut", delay: 0.16 } : undefined
+            shouldAnimate
+              ? { duration: 0.45, ease: "easeOut", delay: 0.16 }
+              : undefined
           }
           className="mt-6 flex flex-wrap gap-2"
         >
@@ -95,12 +111,16 @@ export function Hero(_props: HeroProps): React.JSX.Element {
           initial={shouldAnimate ? { opacity: 0, y: 20 } : false}
           animate={shouldAnimate ? { opacity: 1, y: 0 } : undefined}
           transition={
-            shouldAnimate ? { duration: 0.45, ease: "easeOut", delay: 0.24 } : undefined
+            shouldAnimate
+              ? { duration: 0.45, ease: "easeOut", delay: 0.24 }
+              : undefined
           }
-          className="mt-8 max-w-[760px] text-[17px] leading-8 font-light text-secondary"
+          className="mt-8 max-w-190 text-[17px] leading-8 font-light text-secondary"
         >
-          2+ years building real-time systems, AI-integrated backends, and async workflows.
-          Most of what I&apos;ve built has gone into production and stayed there.
+          <span suppressHydrationWarning>{getYearsOfExperience()}+</span> years
+          building real-time systems, AI-integrated backends, and async
+          workflows. Most of what I&apos;ve built has gone into production and
+          stayed there.
         </motion.p>
 
         <motion.p
@@ -108,7 +128,9 @@ export function Hero(_props: HeroProps): React.JSX.Element {
           initial={shouldAnimate ? { opacity: 0, y: 20 } : false}
           animate={shouldAnimate ? { opacity: 1, y: 0 } : undefined}
           transition={
-            shouldAnimate ? { duration: 0.45, ease: "easeOut", delay: 0.36 } : undefined
+            shouldAnimate
+              ? { duration: 0.45, ease: "easeOut", delay: 0.36 }
+              : undefined
           }
           className="mt-8 text-[13px] font-medium text-secondary"
         >
