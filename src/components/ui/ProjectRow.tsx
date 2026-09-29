@@ -46,6 +46,20 @@ export function ProjectRow({
           <p className="text-[17px] leading-8 font-normal text-primary/80">
             {project.summary}
           </p>
+          {project.metrics && project.metrics.length > 0 && (
+            <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-6 border-y border-border py-6 sm:grid-cols-4">
+              {project.metrics.map((metric) => (
+                <div key={metric.label} className="flex flex-col-reverse justify-end">
+                  <dt className="mt-2 text-[13px] leading-snug text-muted">
+                    {metric.label}
+                  </dt>
+                  <dd className="text-[26px] leading-none font-medium tracking-[-0.03em] text-primary">
+                    {metric.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          )}
           <p className="mt-6 text-[15px] leading-7 font-normal text-secondary">
             {project.challenge}
           </p>
