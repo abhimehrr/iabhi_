@@ -24,7 +24,7 @@ const CONTACT_ITEMS: readonly ContactItem[] = [
 
 export function Contact(_props: ContactProps): React.JSX.Element {
   return (
-    <section id="contact" className="section-space pb-10">
+    <section id="contact" className="section-space texture texture-rings pb-10">
       <div className="page-shell">
         <div className="space-y-4 md:space-y-5">
           {CONTACT_ITEMS.map((item, index) => (

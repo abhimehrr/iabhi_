@@ -9,6 +9,8 @@
   --text-muted: #a8a29e;
   --accent-dark: #0f172a;
   --accent-orange: #f97316;
+  --pattern-line: rgb(28 25 23 / 0.05);
+  --glow: rgb(249 115 22 / 0.09);
 }
 
 .dark {
@@ -20,6 +22,8 @@
   --text-muted: #71717a;
   --accent-dark: #e2e8f0;
   --accent-orange: #fb923c;
+  --pattern-line: rgb(255 255 255 / 0.04);
+  --glow: rgb(251 146 60 / 0.08);
 }
 
 @theme inline {
@@ -41,8 +45,38 @@ html {
 
 body {
   min-height: 100vh;
-  background: var(--app-bg);
+  background-color: var(--app-bg);
   color: var(--text-primary);
+  /* Texture layers are 100vw wide, which includes the scrollbar. */
+  overflow-x: clip;
+}
+
+.texture {
+  position: relative;
+  isolation: isolate;
+}
+
+.texture::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+}
+
+.texture-rings::before {
+  background-image:
+    radial-gradient(ellipse 55% 90% at 50% 100%, var(--glow), transparent 70%),
+    repeating-radial-gradient(
+      circle at 50% 100%,
+      var(--pattern-line) 0 1px,
+      transparent 1.5px 44px
+    );
+  mask-image: linear-gradient(to bottom, transparent, #000 45%);
 }
 
 * {
