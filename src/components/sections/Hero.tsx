@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useShouldAnimate } from "@/components/ui/AnimateIn";
+import { SystemFlow } from "@/components/ui/SystemFlow";
 
 export interface HeroProps {}
 
@@ -12,7 +13,10 @@ export function Hero(_props: HeroProps): React.JSX.Element {
   const animationKey = shouldAnimate ? "animated" : "static";
 
   return (
-    <section id="top" className="page-shell flex min-h-screen items-center pt-20">
+    <section
+      id="top"
+      className="page-shell grid min-h-screen items-center gap-12 pt-20 lg:grid-cols-[minmax(0,1fr)_340px] xl:grid-cols-[minmax(0,1fr)_380px]"
+    >
       <div className="max-w-[900px]">
         <motion.p
           key={`hero-name-${animationKey}`}
@@ -115,6 +119,8 @@ export function Hero(_props: HeroProps): React.JSX.Element {
           Mithila Stack
         </motion.p>
       </div>
+
+      <SystemFlow className="hidden lg:block" />
     </section>
   );
 }
