@@ -12,13 +12,7 @@ const BACKEND_STACK = [
   "Redis",
   "BullMQ",
 ] as const;
-const DEVOPS_STACK = [
-  "Docker",
-  "Jenkins",
-  "AWS",
-  "CI/CD",
-  "Linux",
-] as const;
+const DEVOPS_STACK = ["Docker", "Jenkins", "AWS", "CI/CD", "Linux"] as const;
 const FRONTEND_STACK = [
   "Next.js",
   "React",
@@ -34,6 +28,47 @@ export function Experience(_props: ExperienceProps): React.JSX.Element {
         <h2 className="section-heading">Where I&apos;ve worked</h2>
 
         <div className="mt-10 md:mt-14">
+          <AnimateIn>
+            <article className="relative grid gap-4 md:grid-cols-[200px_1fr] md:gap-12">
+              <div className="relative">
+                <div className="sticky top-24">
+                  <p className="text-[13px] font-medium text-muted">
+                    July 2026 - Present
+                  </p>
+                </div>
+              </div>
+
+              <div className="relative pb-12 md:pb-16">
+                <h3 className="text-[22px] font-medium tracking-[-0.02em] text-primary md:text-[24px]">
+                  Mithila Stack
+                </h3>
+                <p className="mt-1 text-[15px] font-medium text-accent-orange">
+                  Project Manager
+                </p>
+
+                <div className="mt-6 space-y-4 text-[15px] leading-7 text-secondary">
+                  <p>
+                    In July 2026 I was promoted to Project Manager for the
+                    company, and I took it on alongside my engineering work, not
+                    instead of it. I now look after several projects at the same
+                    time and a team of 15–20 people across them.
+                  </p>
+                  <p>
+                    A normal week is mostly planning what each team works on
+                    next, splitting work so people aren&apos;t waiting on each
+                    other, and talking to the team often enough that problems
+                    come up early instead of the day before a release.
+                  </p>
+                  <p>
+                    I still write and review code. Staying close to it helps me
+                    give timelines I actually believe, and notice when something
+                    is harder than it looked in planning.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </AnimateIn>
+
           <AnimateIn>
             <article className="relative grid gap-4 md:grid-cols-[200px_1fr] md:gap-12">
               <div className="relative">
