@@ -49,10 +49,9 @@ const FAQ_ITEMS: readonly FaqItem[] = [
       "As a DevOps engineer, I prioritize automation, CI/CD efficiency, and cloud-native architecture. My goal is to ensure your software is reliable, secure, and capable of handling high traffic loads with minimal downtime, allowing your team to focus on feature development.",
   },
   {
-    question:
-      "Why should I hire you as a senior software engineer for my project?",
+    question: "Why should I hire you as a software engineer for my project?",
     answer:
-      "With a deep background as a senior software engineer, I bring technical leadership, architectural foresight, and a problem-solving mindset to every project. Whether you need a complex AI system or a high-performance web application, I deliver clean, efficient, and future-proof code that aligns with your business objectives.",
+      "With hands-on production experience as a software engineer, I bring ownership, architectural thinking, and a problem-solving mindset to every project. Whether you need a complex AI system or a high-performance web application, I deliver clean, efficient, and future-proof code that aligns with your business objectives.",
   },
 ];
 
