@@ -6,27 +6,31 @@ import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
 import { Work } from "@/components/sections/Work";
 import { Metadata } from "next";
+import {
+  AUTHOR_NAME,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+} from "@/lib/site";
 
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "Abhishek: AI Software Engineer & Full Stack Developer",
-  description:
-    "Expert AI Software Engineer and Full Stack Developer specializing in ML, DevOps, and scalable backend systems. Explore my portfolio and professional experience.",
-  alternates: { canonical: "https://iabhi.live" },
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  alternates: { canonical: SITE_URL },
   openGraph: {
-    title: "Abhishek: AI Software Engineer & Full Stack Developer",
-    description:
-      "Expert AI Software Engineer and Full Stack Developer specializing in ML, DevOps, and scalable backend systems.",
-    url: "https://iabhi.live",
-    siteName: "abhishek portfolio",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abhishek: AI Software Engineer & Full Stack Developer",
-    description:
-      "Expert AI Software Engineer and Full Stack Developer specializing in ML, DevOps, and scalable backend systems.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
   },
   robots: { index: true, follow: true },
 };
@@ -34,13 +38,16 @@ export const metadata: Metadata = {
 export default function HomePage(): React.JSX.Element {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Abhishek Portfolio",
-    url: "https://iabhi.live",
-    author: {
+    "@type": "ProfilePage",
+    "@id": `${SITE_URL}/#profile`,
+    url: SITE_URL,
+    name: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    about: {
       "@type": "Person",
-      name: "Abhishek",
-      jobTitle: "AI Software Engineer",
+      "@id": `${SITE_URL}/#person`,
+      name: AUTHOR_NAME,
+      jobTitle: "AI Software Engineer and Full Stack Developer",
     },
   };
 

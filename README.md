@@ -12,4 +12,4 @@ I own the backend end to end — API design, database architecture, async workfl
 
 - Email: [abhias.dev@gmail.com](mailto:abhias.dev@gmail.com)
 - LinkedIn: [linkedin.com/in/AbhiMehrr](https://linkedin.com/in/AbhiMehrr)
-- Website: [iabhi.live](https://iabhi.live)
+- Website: [abhias.com](https://abhias.com)

@@ -1,4 +1,4 @@
 
 User-agent: *
 Allow: /
-Sitemap: https://iabhi.live/sitemap.xml
+Sitemap: https://abhias.com/sitemap.xml

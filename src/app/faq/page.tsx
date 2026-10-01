@@ -4,18 +4,18 @@ import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
 import { Footer } from "@/components/layout/Footer";
 import { Nav } from "@/components/layout/Nav";
 import { AnimateIn } from "@/components/ui/AnimateIn";
-import { SITE_URL } from "@/lib/site";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions | abhishek portfolio",
+  title: "Frequently Asked Questions",
   description:
-    "Find answers to common questions about abhishek portfolio, features, security, and services on iabhi.live.",
+    "Answers about Abhishek's AI software engineering, full stack development, ML engineering, DevOps, security, and project collaboration experience.",
   alternates: { canonical: `${SITE_URL}/faq` },
   openGraph: {
-    title: "Frequently Asked Questions | abhishek portfolio",
-    description: "Find answers to common questions about abhishek portfolio.",
+    title: "Frequently Asked Questions | Abhishek",
+    description: SITE_DESCRIPTION,
     url: `${SITE_URL}/faq`,
-    siteName: "abhishek portfolio",
+    siteName: SITE_NAME,
     type: "website",
   },
 };
@@ -59,6 +59,8 @@ const FAQ_ITEMS: readonly FaqItem[] = [
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": `${SITE_URL}/faq#faq`,
+  url: `${SITE_URL}/faq`,
   mainEntity: FAQ_ITEMS.map((item) => ({
     "@type": "Question",
     name: item.question,
