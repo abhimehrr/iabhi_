@@ -2,18 +2,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-import {
-  AUTHOR_EMAIL,
-  AUTHOR_JOB_TITLE,
-  AUTHOR_LINKEDIN,
-  AUTHOR_NAME,
-  AUTHOR_PHONE,
-  SITE_DESCRIPTION,
-  SITE_KEYWORDS,
-  SITE_NAME,
-  SITE_TITLE,
-  SITE_URL,
-} from "@/lib/site";
+import { GlobalJsonLd } from "@/components/seo/GlobalJsonLd";
+import { SEO_CONFIG } from "@/lib/seo-config";
+import { getSiteUrl, isPreviewDeployment } from "@/lib/seo-metadata";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,25 +21,28 @@ const instrumentSerif = Instrument_Serif({
   weight: "400",
 });
 
+/**
+ * Root metadata — defaults inherited by all pages.
+ * Do NOT add a manual <head> that blocks Next.js metadata injection.
+ */
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  applicationName: SITE_NAME,
+  metadataBase: new URL(getSiteUrl()),
+  applicationName: SEO_CONFIG.site.name,
   title: {
-    default: SITE_TITLE,
-    template: `%s | ${AUTHOR_NAME}`,
+    default: SEO_CONFIG.site.title,
+    template: `%s | ${SEO_CONFIG.brand}`,
   },
-  description: SITE_DESCRIPTION,
-  keywords: [...SITE_KEYWORDS],
-  authors: [{ name: AUTHOR_NAME, url: SITE_URL }],
-  creator: AUTHOR_NAME,
-  publisher: AUTHOR_NAME,
+  description: SEO_CONFIG.site.description,
+  keywords: [...SEO_CONFIG.site.keywords],
+  authors: [{ name: SEO_CONFIG.personal.name, url: SEO_CONFIG.site.url }],
+  creator: SEO_CONFIG.personal.name,
+  publisher: SEO_CONFIG.personal.name,
   category: "technology",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  alternates: { canonical: SITE_URL },
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -65,38 +59,41 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-    url: SITE_URL,
-    siteName: SITE_NAME,
     type: "website",
-    locale: "en_IN",
+    locale: SEO_CONFIG.site.locale,
+    url: getSiteUrl(),
+    siteName: SEO_CONFIG.site.name,
+    title: SEO_CONFIG.site.title,
+    description: SEO_CONFIG.site.description,
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${AUTHOR_NAME} - ${AUTHOR_JOB_TITLE}`,
+        alt: `${SEO_CONFIG.brand} — ${SEO_CONFIG.personal.headline}`,
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    title: SEO_CONFIG.site.title,
+    description: SEO_CONFIG.site.description,
     images: ["/opengraph-image"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  robots: isPreviewDeployment()
+    ? { index: false, follow: false }
+    : {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+          "max-video-preview": -1,
+        },
+      },
 };
 
 const themeScript = `
@@ -109,73 +106,6 @@ const themeScript = `
     } catch (e) {}
   })();
 `;
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      name: SITE_NAME,
-      url: SITE_URL,
-      description: SITE_DESCRIPTION,
-      inLanguage: "en-IN",
-      publisher: { "@id": `${SITE_URL}/#person` },
-      author: { "@id": `${SITE_URL}/#person` },
-    },
-    {
-      "@type": "Person",
-      "@id": `${SITE_URL}/#person`,
-      name: AUTHOR_NAME,
-      url: SITE_URL,
-      email: AUTHOR_EMAIL,
-      telephone: AUTHOR_PHONE,
-      image: `${SITE_URL}/opengraph-image`,
-      jobTitle: AUTHOR_JOB_TITLE,
-      description: SITE_DESCRIPTION,
-      sameAs: [AUTHOR_LINKEDIN, SITE_URL],
-      worksFor: {
-        "@type": "Organization",
-        name: "Mithila Stack",
-      },
-      knowsAbout: [
-        "Full stack development",
-        "Backend architecture",
-        "Project management",
-        "Real-time systems",
-        "AI agent workflows",
-        "Node.js",
-        "NestJS",
-        "Next.js",
-        "React",
-        "TypeScript",
-        "PostgreSQL",
-        "MongoDB",
-        "Redis",
-        "BullMQ",
-        "Docker",
-        "AWS",
-        "Jenkins CI/CD",
-        "Gemini AI",
-        "Azure AI",
-        "D-ID",
-        "LiveKit",
-        "WhatsApp API",
-      ],
-    },
-    {
-      "@type": "ProfilePage",
-      "@id": `${SITE_URL}/#profilepage`,
-      url: SITE_URL,
-      name: SITE_TITLE,
-      description: SITE_DESCRIPTION,
-      isPartOf: { "@id": `${SITE_URL}/#website` },
-      about: { "@id": `${SITE_URL}/#person` },
-      mainEntity: { "@id": `${SITE_URL}/#person` },
-      inLanguage: "en-IN",
-    },
-  ],
-};
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -192,12 +122,15 @@ export default function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        <link
+          rel="alternate"
+          type="text/plain"
+          href="/llms.txt"
+          title="LLM Information"
         />
       </head>
       <body className="bg-app font-sans antialiased">
+        <GlobalJsonLd />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

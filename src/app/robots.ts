@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/site";
+import { SEO_CONFIG } from "@/lib/seo-config";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,8 +8,20 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
       },
+      {
+        userAgent: "GPTBot",
+        allow: ["/", "/llms.txt"],
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: ["/", "/llms.txt"],
+      },
+      {
+        userAgent: "Google-Extended",
+        allow: "/",
+      },
     ],
-    sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
+    sitemap: `${SEO_CONFIG.site.url}/sitemap.xml`,
+    host: SEO_CONFIG.site.url,
   };
 }

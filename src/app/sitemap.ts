@@ -1,21 +1,24 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/site";
+import { SEO_CONFIG } from "@/lib/seo-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = SEO_CONFIG.site.url;
   const lastModified = new Date();
 
-  return [
-    {
-      url: SITE_URL,
-      lastModified,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${SITE_URL}/faq`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
+  const routes: {
+    path: string;
+    priority: number;
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+  }[] = [
+    { path: "", priority: 1, changeFrequency: "weekly" },
+    { path: "/faq", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/llms.txt", priority: 0.5, changeFrequency: "monthly" },
   ];
+
+  return routes.map(({ path, priority, changeFrequency }) => ({
+    url: `${baseUrl}${path}`,
+    lastModified,
+    changeFrequency,
+    priority,
+  }));
 }
