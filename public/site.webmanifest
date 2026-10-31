@@ -1,11 +1,11 @@
 {
-  "name": "Abhishek - Software Engineer",
+  "name": "Abhishek - Full Stack Engineer",
   "short_name": "Abhishek",
-  "description": "Portfolio of Abhishek, AI software engineer and full stack developer.",
+  "description": "Portfolio of Abhishek, full stack engineer and project manager building real-time systems and AI-integrated backends.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
-  "lang": "en-US",
+  "lang": "en-IN",
   "icons": [
     {
       "src": "/favicon/android-chrome-192x192.png",
@@ -18,7 +18,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#fafaf9",
+  "background_color": "#fafaf9",
   "display": "standalone"
 }

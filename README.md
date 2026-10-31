@@ -4,12 +4,11 @@ Personal portfolio website showcasing my work as a Full Stack Engineer.
 
 ## About Me
 
-I'm Abhishek, a full stack engineer working professionally since March 2024, building production systems. Currently working at Mithila Stack where I've built and shipped products across hiring-tech, healthtech, edtech, and food-tech domains.
-
-I own the backend end to end — API design, database architecture, async workflows, third-party integrations, and deployment. Most of what I build goes into production and stays there.
+I'm Abhishek, a full stack engineer and project manager with 2.5+ years building real-time systems, AI-integrated backends, and async workflows. At Mithila Stack I own backend architecture and lead a 15–20 member team across healthtech, hiring-tech, and edtech.
 
 ## Contact
 
 - Email: [abhias.dev@gmail.com](mailto:abhias.dev@gmail.com)
+- Phone: [+91 73610 92810](tel:+917361092810)
 - LinkedIn: [linkedin.com/in/AbhiMehrr](https://linkedin.com/in/AbhiMehrr)
 - Website: [abhias.com](https://abhias.com)

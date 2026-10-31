@@ -1,5 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import { AnimateIn } from "@/components/ui/AnimateIn";
+import {
+  AUTHOR_EMAIL,
+  AUTHOR_LINKEDIN,
+  AUTHOR_PHONE,
+  AUTHOR_PHONE_DISPLAY,
+} from "@/lib/site";
 
 export interface ContactProps {}
 
@@ -12,12 +18,17 @@ interface ContactItem {
 const CONTACT_ITEMS: readonly ContactItem[] = [
   {
     label: "Have a hard problem?",
-    href: "mailto:abhias.dev@gmail.com",
-    display: "abhias.dev@gmail.com",
+    href: `mailto:${AUTHOR_EMAIL}`,
+    display: AUTHOR_EMAIL,
+  },
+  {
+    label: "Call",
+    href: `tel:${AUTHOR_PHONE}`,
+    display: AUTHOR_PHONE_DISPLAY,
   },
   {
     label: "Connect",
-    href: "https://linkedin.com/in/AbhiMehrr",
+    href: AUTHOR_LINKEDIN,
     display: "linkedin.com/in/AbhiMehrr",
   },
 ];

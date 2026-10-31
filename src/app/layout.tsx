@@ -4,8 +4,10 @@ import { Instrument_Serif, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import {
   AUTHOR_EMAIL,
+  AUTHOR_JOB_TITLE,
   AUTHOR_LINKEDIN,
   AUTHOR_NAME,
+  AUTHOR_PHONE,
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
   SITE_NAME,
@@ -41,6 +43,11 @@ export const metadata: Metadata = {
   creator: AUTHOR_NAME,
   publisher: AUTHOR_NAME,
   category: "technology",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   alternates: { canonical: SITE_URL },
   manifest: "/site.webmanifest",
   icons: {
@@ -63,13 +70,13 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: SITE_NAME,
     type: "website",
-    locale: "en_US",
+    locale: "en_IN",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Abhishek - AI Software Engineer and Full Stack Developer",
+        alt: `${AUTHOR_NAME} - ${AUTHOR_JOB_TITLE}`,
       },
     ],
   },
@@ -111,7 +118,9 @@ const jsonLd = {
       "@id": `${SITE_URL}/#website`,
       name: SITE_NAME,
       url: SITE_URL,
-      inLanguage: "en-US",
+      description: SITE_DESCRIPTION,
+      inLanguage: "en-IN",
+      publisher: { "@id": `${SITE_URL}/#person` },
       author: { "@id": `${SITE_URL}/#person` },
     },
     {
@@ -119,18 +128,51 @@ const jsonLd = {
       "@id": `${SITE_URL}/#person`,
       name: AUTHOR_NAME,
       url: SITE_URL,
-      email: `mailto:${AUTHOR_EMAIL}`,
-      sameAs: [AUTHOR_LINKEDIN],
-      jobTitle: "AI Software Engineer and Full Stack Developer",
+      email: AUTHOR_EMAIL,
+      telephone: AUTHOR_PHONE,
+      image: `${SITE_URL}/opengraph-image`,
+      jobTitle: AUTHOR_JOB_TITLE,
+      description: SITE_DESCRIPTION,
+      sameAs: [AUTHOR_LINKEDIN, SITE_URL],
+      worksFor: {
+        "@type": "Organization",
+        name: "Mithila Stack",
+      },
       knowsAbout: [
-        "AI software engineering",
+        "Full stack development",
         "Backend architecture",
-        "Machine learning workflows",
-        "DevOps",
-        "Next.js",
-        "NestJS",
+        "Project management",
+        "Real-time systems",
+        "AI agent workflows",
         "Node.js",
+        "NestJS",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "BullMQ",
+        "Docker",
+        "AWS",
+        "Jenkins CI/CD",
+        "Gemini AI",
+        "Azure AI",
+        "D-ID",
+        "LiveKit",
+        "WhatsApp API",
       ],
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": `${SITE_URL}/#profilepage`,
+      url: SITE_URL,
+      name: SITE_TITLE,
+      description: SITE_DESCRIPTION,
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      about: { "@id": `${SITE_URL}/#person` },
+      mainEntity: { "@id": `${SITE_URL}/#person` },
+      inLanguage: "en-IN",
     },
   ],
 };
@@ -155,7 +197,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-app font-sans antialiased" cz-shortcut-listen="true">
+      <body className="bg-app font-sans antialiased">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

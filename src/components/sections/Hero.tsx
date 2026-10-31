@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useShouldAnimate } from "@/components/ui/AnimateIn";
 import { SystemFlow } from "@/components/ui/SystemFlow";
-import { getYearsOfExperience } from "@/lib/experience";
+import { getYearsOfExperienceLabel } from "@/lib/experience";
 
 export interface HeroProps {}
 
@@ -117,8 +117,8 @@ export function Hero(_props: HeroProps): React.JSX.Element {
           }
           className="mt-8 max-w-190 text-[17px] leading-8 font-light text-secondary"
         >
-          <span suppressHydrationWarning>{getYearsOfExperience()}+</span> years
-          building real-time systems, AI-integrated backends, and async
+          <span suppressHydrationWarning>{getYearsOfExperienceLabel()}+</span>{" "}
+          years building real-time systems, AI-integrated backends, and async
           workflows. Most of what I&apos;ve built has gone into production and
           stayed there.
         </motion.p>

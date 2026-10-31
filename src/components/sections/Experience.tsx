@@ -117,11 +117,11 @@ export function Experience(_props: ExperienceProps): React.JSX.Element {
                       workflows.
                     </p>
                     <p>
-                      Handle deployment and infrastructure using Docker and
-                      Jenkins CI/CD pipelines on AWS. Work with HIPAA-compliant
-                      infrastructure for healthcare applications, managing
-                      sensitive PHI data with proper security controls and
-                      isolated services.
+                      Deployed and maintained 25+ full-stack applications and
+                      10+ landing pages with Docker across AWS and VPS hosts,
+                      using Jenkins CI/CD for automated releases. Also work with
+                      secure handling of sensitive healthcare data where the
+                      product needs it.
                     </p>
                   </div>
 

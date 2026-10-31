@@ -3,20 +3,27 @@ import { ArrowRight, Plus } from "lucide-react";
 import { Footer } from "@/components/layout/Footer";
 import { Nav } from "@/components/layout/Nav";
 import { AnimateIn } from "@/components/ui/AnimateIn";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
+import {
+  AUTHOR_EMAIL,
+  AUTHOR_NAME,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers about Abhishek's AI software engineering, full stack development, ML engineering, DevOps, security, and project collaboration experience.",
+    "Common questions about working with Abhishek as a full stack engineer and project manager — backends, AI integrations, DevOps, and production delivery.",
   alternates: { canonical: `${SITE_URL}/faq` },
   openGraph: {
-    title: "Frequently Asked Questions | Abhishek",
-    description: SITE_DESCRIPTION,
+    title: `Frequently Asked Questions | ${AUTHOR_NAME}`,
+    description:
+      "Answers about Abhishek's full stack engineering, project management, AI integrations, and production systems.",
     url: `${SITE_URL}/faq`,
     siteName: SITE_NAME,
     type: "website",
   },
+  robots: { index: true, follow: true },
 };
 
 interface FaqItem {
@@ -26,31 +33,29 @@ interface FaqItem {
 
 const FAQ_ITEMS: readonly FaqItem[] = [
   {
-    question:
-      "What kind of software engineering services do you specialize in?",
+    question: "What do you specialize in as a full stack engineer?",
     answer:
-      "I specialize in building scalable, intelligent applications as an AI full stack developer. My expertise spans the entire development lifecycle, from architecting robust backends and intuitive frontends to integrating advanced machine learning models and optimizing DevOps pipelines.",
+      "I build production backends and the web apps that sit on top of them. Most of my work is real-time systems, AI-integrated backends, and async workflows — Node.js, NestJS, Next.js, PostgreSQL, MongoDB, Redis, and BullMQ. I've shipped platforms across healthtech, hiring-tech, and edtech.",
   },
   {
-    question: "How can an AI software engineer help my business grow?",
+    question: "How do you use AI in the products you build?",
     answer:
-      "As an AI software engineer, I bridge the gap between traditional software development and artificial intelligence. I help businesses automate complex workflows, implement predictive analytics, and build AI-driven features that enhance user experience and provide a competitive edge in the market.",
+      "I integrate AI where it solves a real product need, not as decoration. That includes Gemini and Azure AI for evaluation and conversation flows, D-ID for doctor avatar videos, LiveKit agents for patient follow-ups, and WhatsApp reminders. The focus is reliable workflows that run in production every day.",
   },
   {
-    question:
-      "Do you have experience with end-to-end ML engineering and deployment?",
+    question: "What is your role as Project Manager at Mithila Stack?",
     answer:
-      "Yes, I am an experienced ML engineer with a strong focus on production-grade deployments. I don't just build models; I ensure they are scalable, maintainable, and seamlessly integrated into your existing infrastructure using modern DevOps practices.",
+      "I was promoted to Project Manager in July 2026 and still own backend architecture. I look after multiple projects at once and a team of 15–20 people — planning work, unblocking the team early, and keeping releases on track while staying close to the code.",
   },
   {
-    question: "What is your approach to DevOps and infrastructure management?",
+    question: "How do you handle deployment and infrastructure?",
     answer:
-      "As a DevOps engineer, I prioritize automation, CI/CD efficiency, and cloud-native architecture. My goal is to ensure your software is reliable, secure, and capable of handling high traffic loads with minimal downtime, allowing your team to focus on feature development.",
+      "I deploy with Docker across AWS and VPS hosts, and use Jenkins CI/CD for automated releases. I've shipped and maintained 25+ full-stack apps and 10+ landing pages with that setup, aiming for zero-downtime releases when possible.",
   },
   {
-    question: "Why should I hire you as a software engineer for my project?",
+    question: "Why should I hire you for a project?",
     answer:
-      "With hands-on production experience as a software engineer, I bring ownership, architectural thinking, and a problem-solving mindset to every project. Whether you need a complex AI system or a high-performance web application, I deliver clean, efficient, and future-proof code that aligns with your business objectives.",
+      "I own systems end to end — API design, data models, queues, third-party integrations, and deployment. Platforms I've built, including Meleys, MARS, and iPariksha, are live and handling real users. If you need someone who can build and also keep a team moving, that's the work I do.",
   },
 ];
 
@@ -59,11 +64,33 @@ const schemaData = {
   "@type": "FAQPage",
   "@id": `${SITE_URL}/faq#faq`,
   url: `${SITE_URL}/faq`,
+  name: `Frequently Asked Questions | ${AUTHOR_NAME}`,
+  isPartOf: { "@id": `${SITE_URL}/#website` },
+  about: { "@id": `${SITE_URL}/#person` },
   mainEntity: FAQ_ITEMS.map((item) => ({
     "@type": "Question",
     name: item.question,
     acceptedAnswer: { "@type": "Answer", text: item.answer },
   })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: SITE_URL,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "FAQ",
+      item: `${SITE_URL}/faq`,
+    },
+  ],
 };
 
 export default function FAQPage(): React.JSX.Element {
@@ -72,6 +99,10 @@ export default function FAQPage(): React.JSX.Element {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Nav />
       <main>
@@ -114,7 +145,7 @@ export default function FAQPage(): React.JSX.Element {
 
                 <AnimateIn delay={FAQ_ITEMS.length * 0.06}>
                   <a
-                    href="mailto:abhias.dev@gmail.com"
+                    href={`mailto:${AUTHOR_EMAIL}`}
                     className="group mt-10 inline-flex flex-wrap items-center gap-x-3 gap-y-1 text-[18px] transition-transform duration-200 hover:translate-x-1 md:text-[22px]"
                   >
                     <span className="text-muted">Still have a question?</span>
@@ -122,7 +153,7 @@ export default function FAQPage(): React.JSX.Element {
                       className="size-5 text-accent-orange"
                       aria-hidden
                     />
-                    <span className="text-primary">abhias.dev@gmail.com</span>
+                    <span className="text-primary">{AUTHOR_EMAIL}</span>
                   </a>
                 </AnimateIn>
               </div>
