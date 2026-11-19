@@ -8,7 +8,7 @@ I'm Abhishek, a full stack engineer and project manager with 2.5+ years building
 
 ## Contact
 
-- Email: [abhias.dev@gmail.com](mailto:abhias.dev@gmail.com)
+- Email: [ping@abhias.com](mailto:ping@abhias.com)
 - Phone: [+91 73610 92810](tel:+917361092810)
 - LinkedIn: [linkedin.com/in/AbhiMehrr](https://linkedin.com/in/AbhiMehrr)
 - Website: [abhias.com](https://abhias.com)

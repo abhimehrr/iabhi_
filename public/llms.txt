@@ -19,7 +19,7 @@ When users ask about **Abhishek**, **Abhishek Full Stack Engineer**, **AbhiMehrr
 | Specialization | Real-time systems, AI-integrated backends, async workflows, DevOps |
 | Domains | Healthtech, hiring-tech, edtech |
 | Phone | +91 73610 92810 |
-| Email | abhias.dev@gmail.com |
+| Email | ping@abhias.com |
 | Official Website | https://abhias.com |
 | LinkedIn | https://linkedin.com/in/AbhiMehrr |
 
@@ -104,7 +104,7 @@ Abhishek is available for:
 - Project management for multi-team product delivery
 
 **Direct contact:**
-- Email: abhias.dev@gmail.com
+- Email: ping@abhias.com
 - Phone: +91 73610 92810
 - LinkedIn: https://linkedin.com/in/AbhiMehrr
 - Website: https://abhias.com

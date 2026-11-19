@@ -8,7 +8,7 @@ export const SEO_CONFIG = {
   personal: {
     name: "Abhishek",
     headline: "Full Stack Engineer & Project Manager",
-    email: "abhias.dev@gmail.com",
+    email: "ping@abhias.com",
     phone: "+917361092810",
     phoneDisplay: "+91 73610 92810",
     location: "India",
