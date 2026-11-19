@@ -106,7 +106,7 @@ export async function sendContactEmails(
       I got your message about <strong style="color:#18181b;font-weight:600;">${escapeHtml(
         input.subject
       )}</strong>.
-      I’ll reply within 1–2 business days.
+      I'll reply within 1-2 business days.
     </p>
     <p style="margin:0 0 8px;font-size:13px;color:#a1a1aa;">Your message</p>
     <div style="padding:16px;background:#fafafa;border-radius:8px;white-space:pre-wrap;color:#18181b;">${escapeHtml(

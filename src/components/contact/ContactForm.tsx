@@ -26,6 +26,13 @@ const INITIAL: FormState = {
   website: "",
 };
 
+/** Keep only digits, and a single leading + */
+function sanitizePhoneInput(value: string): string {
+  const hasPlus = value.trimStart().startsWith("+");
+  const digits = value.replace(/\D/g, "");
+  return hasPlus ? `+${digits}` : digits;
+}
+
 function fieldClass(hasError: boolean): string {
   return [
     "mt-2 w-full rounded-xl border bg-surface px-4 py-3 text-[15px] text-primary outline-none transition placeholder:text-muted",
@@ -41,10 +48,12 @@ export function ContactForm(): React.JSX.Element {
   const [submitting, setSubmitting] = useState(false);
 
   const onChange = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ): void => {
     const { name, value } = event.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    const nextValue = name === "phone" ? sanitizePhoneInput(value) : value;
+
+    setForm((prev) => ({ ...prev, [name]: nextValue }));
     if (errors[name as keyof ContactFormErrors]) {
       setErrors((prev) => {
         const next = { ...prev };
@@ -55,7 +64,7 @@ export function ContactForm(): React.JSX.Element {
   };
 
   const onSubmit = async (
-    event: React.FormEvent<HTMLFormElement>,
+    event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
     if (submitting) return;
@@ -96,12 +105,7 @@ export function ContactForm(): React.JSX.Element {
   return (
     <form onSubmit={onSubmit} className="space-y-6" noValidate>
       <div className="grid gap-6 sm:grid-cols-2">
-        <Field
-          label="Name"
-          required
-          error={errors.name}
-          htmlFor="contact-name"
-        >
+        <Field label="Name" required error={errors.name} htmlFor="contact-name">
           <input
             id="contact-name"
             name="name"
@@ -139,7 +143,7 @@ export function ContactForm(): React.JSX.Element {
         optional
         error={errors.phone}
         htmlFor="contact-phone"
-        hint="Include the country code if you are outside India (for example +1, +44)."
+        hint="Digits only, with an optional leading +. Include the country code if you are outside India (for example +919876543210)."
       >
         <input
           id="contact-phone"
@@ -147,8 +151,9 @@ export function ContactForm(): React.JSX.Element {
           name="phone"
           value={form.phone}
           onChange={onChange}
+          inputMode="tel"
           autoComplete="tel"
-          placeholder="+91 98765 43210"
+          placeholder="+919876543210"
           aria-invalid={Boolean(errors.phone)}
           className={fieldClass(Boolean(errors.phone))}
         />
@@ -197,14 +202,14 @@ export function ContactForm(): React.JSX.Element {
         tabIndex={-1}
         autoComplete="off"
         aria-hidden
-        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+        className="absolute -left-2499.75 h-0 w-0 opacity-0"
       />
 
       <button
         type="submit"
         disabled={submitting}
-        className="group inline-flex items-center gap-2 rounded-full border border-accent-orange/40 bg-accent-orange/10 px-6 py-3 text-[14px] font-medium text-accent-orange transition hover:border-accent-orange hover:bg-accent-orange/15 disabled:cursor-not-allowed disabled:opacity-60"
-      >
+        className="group inline-flex items-center gap-2 rounded-full border border-accent-orange/40 bg-accent-orange/10 px-6 py-3 text-[14px] font-medium text-accent-orange transition hover:border-accent-orange hover:bg-accent-orange/15 cursor-pointer disabled:cursor-not-allowed disabled:opacity-60"
+      > 
         {submitting ? "Sending…" : "Send message"}
         {!submitting && (
           <ArrowRight
@@ -236,7 +241,10 @@ function Field({
 }): React.JSX.Element {
   return (
     <div className="block">
-      <label htmlFor={htmlFor} className="text-[13px] font-medium text-secondary">
+      <label
+        htmlFor={htmlFor}
+        className="text-[13px] font-medium text-secondary"
+      >
         {label}
         {required ? <span className="text-accent-orange"> *</span> : null}
         {optional ? (

@@ -11,7 +11,17 @@ export const contactFormSchema = z.object({
     .trim()
     .max(120, "Email is too long")
     .lowercase(),
-  phone: z.string().trim().max(30, "Phone is too long").default(""),
+  phone: z
+    .string()
+    .trim()
+    .max(16, "Phone is too long")
+    .default("")
+    .refine((value) => value === "" || /^\+?[0-9]+$/.test(value), {
+      message: "Phone can only include digits and an optional +",
+    })
+    .refine((value) => value === "" || value.replace(/\D/g, "").length >= 7, {
+      message: "Enter a valid phone number",
+    }),
   subject: z
     .string()
     .trim()
