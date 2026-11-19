@@ -87,4 +87,10 @@ export const PAGE_METADATA = {
       "Common questions about working with Abhishek as a full stack engineer and project manager — backends, AI integrations, DevOps, and production delivery.",
     path: "/faq",
   }),
+  contact: buildPageMetadata({
+    title: "Contact",
+    description:
+      "Contact Abhishek about full stack engineering, AI integrations, DevOps, or project collaboration. Send a message or reach out by email, phone, or LinkedIn.",
+    path: "/contact",
+  }),
 } as const;

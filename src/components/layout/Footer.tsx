@@ -14,6 +14,13 @@ export function Footer(_props: FooterProps): React.JSX.Element {
         <DotIcon className="size-4" />
         <span>Shipping systems, not just code</span>
         <DotIcon className="size-4" />
+        <Link
+          href="/contact"
+          className="hover:text-accent-orange hover:underline"
+        >
+          Contact
+        </Link>
+        <DotIcon className="size-4" />
         <Link href="/faq" className="hover:text-accent-orange hover:underline">
           FAQ
         </Link>

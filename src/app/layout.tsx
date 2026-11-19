@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { GlobalJsonLd } from "@/components/seo/GlobalJsonLd";
+import { AppToaster } from "@/components/ui/AppToaster";
 import { SEO_CONFIG } from "@/lib/seo-config";
 import { getSiteUrl, isPreviewDeployment } from "@/lib/seo-metadata";
 
@@ -131,7 +132,10 @@ export default function RootLayout({
       </head>
       <body className="bg-app font-sans antialiased" suppressHydrationWarning>
         <GlobalJsonLd />
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <AppToaster />
+        </ThemeProvider>
       </body>
     </html>
   );

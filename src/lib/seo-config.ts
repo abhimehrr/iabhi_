@@ -17,6 +17,12 @@ export const SEO_CONFIG = {
     worksFor: "Mithila Stack",
   },
 
+  /** Transactional Mail Config */
+  mail: {
+    from: "Abhishek <pong@abhias.com>",
+    adminTo: "ping@abhias.com",
+  },
+
   social: {
     linkedin: "https://linkedin.com/in/AbhiMehrr",
   },
