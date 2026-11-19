@@ -1,11 +1,14 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter } from "next/font/google";
+import Script from "next/script";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { GlobalJsonLd } from "@/components/seo/GlobalJsonLd";
 import { AppToaster } from "@/components/ui/AppToaster";
 import { SEO_CONFIG } from "@/lib/seo-config";
 import { getSiteUrl, isPreviewDeployment } from "@/lib/seo-metadata";
+
+const GTM_ID = "GTM-WQJ6CML6";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -131,6 +134,31 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-app font-sans antialiased" suppressHydrationWarning>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
+        <Script
+          id="gtm-datalayer"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            `,
+          }}
+        />
+        <Script
+          id="gtm"
+          src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
+          strategy="afterInteractive"
+        />
         <GlobalJsonLd />
         <ThemeProvider>
           {children}
