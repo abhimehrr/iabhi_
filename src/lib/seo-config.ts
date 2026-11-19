@@ -8,7 +8,7 @@ export const SEO_CONFIG = {
   personal: {
     name: "Abhishek",
     headline: "Full Stack Engineer & Project Manager",
-    email: "ping@abhias.com",
+    email: "abhi@abhias.com",
     phone: "+917361092810",
     phoneDisplay: "+91 73610 92810",
     location: "India",
@@ -19,8 +19,8 @@ export const SEO_CONFIG = {
 
   /** Transactional Mail Config */
   mail: {
-    from: "Abhishek <pong@abhias.com>",
-    adminTo: "ping@abhias.com",
+    from: "Abhishek <null@abhias.com>",
+    adminTo: "abhi@abhias.com",
   },
 
   social: {
