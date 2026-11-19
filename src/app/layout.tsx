@@ -129,7 +129,7 @@ export default function RootLayout({
           title="LLM Information"
         />
       </head>
-      <body className="bg-app font-sans antialiased">
+      <body className="bg-app font-sans antialiased" suppressHydrationWarning>
         <GlobalJsonLd />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
