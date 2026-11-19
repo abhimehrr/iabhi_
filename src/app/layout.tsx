@@ -7,6 +7,7 @@ import { GlobalJsonLd } from "@/components/seo/GlobalJsonLd";
 import { AppToaster } from "@/components/ui/AppToaster";
 import { SEO_CONFIG } from "@/lib/seo-config";
 import { getSiteUrl, isPreviewDeployment } from "@/lib/seo-metadata";
+import { Analytics } from "@vercel/analytics/next";
 
 const GTM_ID = "GTM-WQJ6CML6";
 
@@ -164,6 +165,7 @@ export default function RootLayout({
           {children}
           <AppToaster />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
